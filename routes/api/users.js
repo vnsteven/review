@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
-const User = require('../../../models/User');
+const auth = require('../../middleware/auth');
+const User = require('../../models/User');
 
 // @route  POST api/user
 // @desc   Register a user
@@ -10,15 +11,15 @@ const User = require('../../../models/User');
 router.post(
   '/',
   [
-    check('name', 'Veuillez rentrer un nom valide')
+    check('name', 'Please enter a valid name')
       .not()
       .isEmpty(),
-    check('phonenumber', 'Veuillez rentrer un numéro valide')
+    check('phonenumber', 'Please enter a valid phone number')
       .isLength({
         min: 10,
         max: 10
       }),
-    check('password', 'Veuillez rentrer un mot de passe valide')
+    check('password', 'Please enter a valid password')
       .isLength({
         min: 6
       })
@@ -60,5 +61,18 @@ router.post(
     }
   }
 )
+
+// @route  GET api/user
+// @desc   Get all users
+// @access Private
+router.get('/', auth, async (req, res) => {
+  try {
+    const users = await User.find().select('-password');
+    res.json(users);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+})
 
 module.exports = router;
