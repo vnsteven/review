@@ -6,7 +6,7 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 
 // @route  POST api/user/inbox/:user_id
-// @desc   Create a review
+// @desc   Send a review to a user
 // @access Private
 router.post('/:user_id', auth, async (req, res) => {
   const { title, description } = req.body;
