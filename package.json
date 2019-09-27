@@ -1,0 +1,41 @@
+{
+  "name": "review",
+  "version": "1.0.0",
+  "description": "Share your movie review with your friends",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnsteven/review.git"
+  },
+  "keywords": [
+    "review",
+    "share",
+    "friends",
+    "netflix",
+    "pwa",
+    "mobile",
+    "movies",
+    "series"
+  ],
+  "author": "Steven Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vnsteven/review/issues"
+  },
+  "homepage": "https://github.com/vnsteven/review#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.1"
+  }
+}
