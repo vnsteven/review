@@ -61,6 +61,32 @@ UserSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
+UserSchema.statics.findByCredentials = async (name, password) => {
+  const user = await User.findOne({ name });
+
+  if (!user) {
+    throw new Error('Invalid Credentials');
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (!isMatch) {
+    throw new Error('Invalid Credentials');
+  }
+
+  return user;
+};
+
+UserSchema.methods.generateAuthToken = async function () {
+  const user = this;
+  const token = await jwt.sign(
+    { _id: user._id.toString() },
+    jwtSecret,
+    { expiresIn: 360000 }
+  );
+  return token;
+};
+
 // Encrypt password
 UserSchema.pre('save', async function (next) {
   const user = this;
