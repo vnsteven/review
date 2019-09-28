@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter, Redirect } from 'react-router-dom';
+
+import { connect } from 'react-redux';
 
 const landingStyle = {
   display: 'flex',
@@ -16,7 +18,11 @@ const buttonStyle = {
   padding: '.5rem'
 }
 
-function Landing() {
+function Landing({ isAuthenticated }) {
+  if (isAuthenticated) {
+    return <Redirect to='/create' />
+  }
+
   return (
     <div style={landingStyle}>
       <Link to='/sign-up'><button style={buttonStyle}>Nouveau ?</button></Link>
@@ -25,4 +31,8 @@ function Landing() {
   )
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps)(withRouter(Landing));

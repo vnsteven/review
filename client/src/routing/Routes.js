@@ -1,16 +1,33 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+
+import { connect } from 'react-redux';
 
 import SignUp from '../components/auth/SignUp';
+import SignIn from '../components/auth/SignIn';
+import Account from '../components/user/Account';
 
-function Routes() {
+function Routes({ isAuthenticated }) {
+  const guest = (
+    <Fragment>
+      <Route exact path="/sign-up" component={SignUp} />
+      <Route exact path="/sign-in" component={SignIn} />
+    </Fragment>
+  )
+
   return (
     <Fragment>
       <Switch>
-        <Route exact path="/sign-up" component={SignUp} />
+        {!isAuthenticated && guest}
+        <PrivateRoute path='/account' component={Account} />
       </Switch>
     </Fragment>
   )
 }
 
-export default Routes;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps)(Routes);

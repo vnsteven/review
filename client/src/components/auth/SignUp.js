@@ -119,7 +119,8 @@ function SignUp({
 }
 
 SignUp.propTypes = {
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default connect(

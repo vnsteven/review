@@ -55,3 +55,36 @@ export const register = (data, history) => async dispatch => {
     })
   }
 }
+
+export const signIn = (data, history) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  try {
+    const body = JSON.stringify(data);
+    const res = await axios.post('/api/auth', body, config);
+
+    dispatch({
+      type: SIGNIN_SUCCESS,
+      payload: res.data
+    });
+
+    dispatch(loadUser());
+
+    history.push('/create');
+  } catch (error) {
+    dispatch({
+      type: SIGNIN_FAIL
+    })
+  }
+}
+
+export const logOut = (history) => dispatch => {
+  dispatch({
+    type: LOGOUT
+  })
+  history.push('/')
+}
