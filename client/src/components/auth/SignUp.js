@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
@@ -28,7 +29,10 @@ const buttonStyle = {
   padding: '0.5rem'
 }
 
-function SignUp({ register }) {
+function SignUp({
+  register,
+  history
+}) {
   const [formData, setFormData] = useState({
     name: '',
     phonenumber: '',
@@ -54,7 +58,7 @@ function SignUp({ register }) {
       name,
       phonenumber,
       password
-    })
+    }, history);
   }
 
   function handleChange(e) {
@@ -121,4 +125,4 @@ SignUp.propTypes = {
 export default connect(
   null,
   { register }
-)(SignUp);
+)(withRouter(SignUp));

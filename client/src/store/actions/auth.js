@@ -30,7 +30,7 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-export const register = data => async dispatch => {
+export const register = (data, history) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -47,6 +47,8 @@ export const register = data => async dispatch => {
     })
 
     dispatch(loadUser());
+
+    history.push('/create')
   } catch (error) {
     dispatch({
       type: REGISTER_FAIL
