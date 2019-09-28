@@ -13,7 +13,6 @@ router.post('/:user_id', auth, async (req, res) => {
 
   try {
     const user = await User.findById(req.params.user_id);
-
     user.inbox.unshift({ sender: req.user.id, title, description })
 
     await user.save();
