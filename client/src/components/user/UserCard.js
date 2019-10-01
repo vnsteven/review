@@ -53,6 +53,8 @@ function UserCard({
 }
 
 UserCard.propTypes = {
+  location: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   sendReview: PropTypes.func.isRequired
 }

@@ -13,10 +13,11 @@ function SearchList() {
   const [movieList, setMovieList] = useState([]);
 
   async function handleChange(e) {
+    const value = e.target.value;
     setSearchValue(e.target.value);
-    if (searchValue.length > 1) {
+    if (value.length >= 1) {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=6f7143ca51e64aa9d8ca2d8289dc7ac4&language=fr-FR&query=${searchValue}&page=1&include_adult=false`,
+        `https://api.themoviedb.org/3/search/movie?api_key=6f7143ca51e64aa9d8ca2d8289dc7ac4&language=fr-FR&query=${value}&page=1&include_adult=false`,
         {
           method: 'GET'
         })
@@ -27,9 +28,13 @@ function SearchList() {
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <Fragment>
-      <form style={formStyle}>
+      <form style={formStyle} onSubmit={handleSubmit}>
         <TextField
           autoFocus
           value={searchValue}

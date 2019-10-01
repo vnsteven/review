@@ -32,7 +32,8 @@ function InboxList({
 }
 
 InboxList.propTypes = {
-  getInbox: PropTypes.func.isRequired
+  getInbox: PropTypes.func.isRequired,
+  review: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

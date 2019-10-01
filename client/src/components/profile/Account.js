@@ -1,9 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-
 import { logOut } from '../../store/actions/auth';
+
+import Button from '@material-ui/core/Button';
 
 const accountStyle = {
   display: 'flex',
@@ -31,6 +32,11 @@ function Account({
       </Button>
     </div>
   );
+}
+
+Account.propTypes = {
+  history: PropTypes.object.isRequired,
+  logOut: PropTypes.func.isRequired
 }
 
 export default connect(

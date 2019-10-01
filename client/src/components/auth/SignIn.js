@@ -84,7 +84,8 @@ function SignIn({
 }
 
 SignIn.propTypes = {
-  signIn: PropTypes.func.isRequired
+  signIn: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default connect(

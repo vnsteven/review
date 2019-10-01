@@ -49,6 +49,7 @@ function InboxItem({
 
 InboxItem.propTypes = {
   id: PropTypes.string.isRequired,
+  sender: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired
 }

@@ -7,8 +7,7 @@ import UserCard from './UserCard';
 
 function UserList({
   getUsers,
-  user: { users },
-  auth
+  user: { users }
 }) {
   useEffect(() => {
     getUsers();
@@ -30,12 +29,12 @@ function UserList({
 }
 
 const mapStateToProps = state => ({
-  user: state.user,
-  auth: state.auth
+  user: state.user
 })
 
 UserList.propTypes = {
-  getUsers: PropTypes.func.isRequired
+  getUsers: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 export default connect(
