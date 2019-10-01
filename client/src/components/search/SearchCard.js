@@ -11,13 +11,6 @@ const cardStyle = {
   margin: '1rem'
 }
 
-const buttonStyle = {
-  backgroundColor: '#0074D9',
-  color: 'white',
-  fontSize: '1rem',
-  padding: '0.5rem'
-};
-
 function SearchCard({
   title,
   overview
@@ -36,7 +29,6 @@ function SearchCard({
           <Button
             variant='contained'
             color='primary'
-            style={buttonStyle}
           >
             Envoyer
           </Button>

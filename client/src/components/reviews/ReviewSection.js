@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import InboxList from './InboxList';
 
@@ -10,4 +10,4 @@ function ReviewSection() {
   )
 }
 
-export default ReviewSection
+export default ReviewSection;

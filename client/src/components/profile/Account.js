@@ -12,13 +12,6 @@ const accountStyle = {
   padding: '2rem'
 }
 
-const buttonStyle = {
-  backgroundColor: '#0074D9',
-  color: 'white',
-  fontSize: '1rem',
-  padding: '0.5rem'
-};
-
 function Account({
   history,
   logOut
@@ -32,7 +25,6 @@ function Account({
       <Button
         variant='contained'
         color='primary'
-        style={buttonStyle}
         onClick={handleSubmit}
       >
         Se déconnecter

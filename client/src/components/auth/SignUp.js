@@ -6,27 +6,18 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../store/actions/auth';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 const formStyle = {
   margin: '1rem',
   display: 'flex',
   flexDirection: 'column'
 }
 
-const inputStyle = {
-  border: '1px solid black',
-  padding: '.5rem'
-}
-
 const titleStyle = {
   display: 'flex',
   justifyContent: 'center'
-}
-
-const buttonStyle = {
-  backgroundColor: '#0074D9',
-  color: 'white',
-  fontSize: '1rem',
-  padding: '0.5rem'
 }
 
 function SignUp({
@@ -74,46 +65,44 @@ function SignUp({
       style={formStyle}
     >
       <h1 style={titleStyle}>Créer un compte</h1>
-      <input
+      <TextField
+        autoFocus
         value={name}
         onChange={handleChange}
         name='name'
-        style={inputStyle}
         placeholder='Nom'
       />
       <br />
-      <input
+      <TextField
         value={phonenumber}
         onChange={handleChange}
         name='phonenumber'
-        style={inputStyle}
         placeholder='Téléphone'
       />
       <br />
-      <input
+      <TextField
         value={password}
         onChange={handleChange}
         name='password'
         type='password'
-        style={inputStyle}
         placeholder='Mot de passe'
       />
       <br />
-      <input
+      <TextField
         value={password2}
         onChange={handleChange}
         name='password2'
         type='password'
-        style={inputStyle}
         placeholder='Confirmer le mot de passe'
       />
       <br />
-      <button
+      <Button
+        variant='contained'
+        color='primary'
         type="submit"
-        style={buttonStyle}
       >
         Inscription
-      </button>
+      </Button>
     </form>
   )
 }

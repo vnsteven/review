@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
@@ -49,6 +50,8 @@ router.post(
         phonenumber,
         password
       })
+
+      user.password = await bcrypt.hash(user.password, 10);
 
       await user.save();
 

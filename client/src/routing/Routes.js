@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 
 import SignUp from '../components/auth/SignUp';
 import SignIn from '../components/auth/SignIn';
-import Account from '../components/user/Account';
+import Account from '../components/profile/Account';
 import SearchList from '../components/search/SearchList';
-import UserList from '../components/contact/UserList';
+import UserList from '../components/user/UserList';
 import ReviewSection from '../components/reviews/ReviewSection';
 
 function Routes({ isAuthenticated }) {

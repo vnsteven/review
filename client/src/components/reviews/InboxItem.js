@@ -11,11 +11,6 @@ const cardStyle = {
   margin: '1rem'
 }
 
-const buttonStyle = {
-  backgroundColor: '#0074D9',
-  color: 'white'
-};
-
 function InboxItem({
   id,
   sender,
@@ -36,7 +31,6 @@ function InboxItem({
           <Button
             variant='contained'
             color='primary'
-            style={buttonStyle}
           >
             Accepter
           </Button>

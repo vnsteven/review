@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { getUsers } from '../../store/actions/user';
@@ -17,7 +18,6 @@ function UserList({
     <div>
       {
         users.map(user => (
-          auth.user._id !== user._id &&
           <UserCard
             id={user._id}
             key={user._id}
@@ -33,6 +33,10 @@ const mapStateToProps = state => ({
   user: state.user,
   auth: state.auth
 })
+
+UserList.propTypes = {
+  getUsers: PropTypes.func.isRequired
+}
 
 export default connect(
   mapStateToProps,

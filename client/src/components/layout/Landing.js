@@ -12,9 +12,7 @@ const landingStyle = {
 }
 
 const buttonStyle = {
-  backgroundColor: '#0074D9',
   color: 'white',
-  fontSize: '1rem',
   margin: '.5rem',
   padding: '.5rem'
 }
@@ -26,13 +24,27 @@ function Landing({ isAuthenticated }) {
 
   return (
     <div style={landingStyle}>
-      <Link to='sign-up' style={{ textDecoration: 'none' }}>
-        <Button variant="contained" color="primary" style={buttonStyle}>
+      <Link
+        to='sign-up'
+        style={{ textDecoration: 'none' }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          style={buttonStyle}
+        >
           Nouveau ?
         </Button>
       </Link>
-      <Link to='sign-in' style={{ textDecoration: 'none' }}>
-        <Button variant="contained" color="primary" style={buttonStyle}>
+      <Link
+        to='sign-in'
+        style={{ textDecoration: 'none' }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          style={buttonStyle}
+        >
           Déjà un compte ?
         </Button>
       </Link>

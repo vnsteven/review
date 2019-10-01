@@ -13,11 +13,18 @@ router.post('/:user_id', auth, async (req, res) => {
 
   try {
     const user = await User.findById(req.params.user_id);
-    user.inbox.unshift({ sender: req.user.id, title, description })
+    const { inbox } = user;
+    const newInbox = {
+      sender: req.user.id,
+      title,
+      description
+    }
+
+    inbox.unshift(newInbox);
 
     await user.save();
 
-    res.json(user.inbox);
+    res.json(inbox);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');

@@ -6,27 +6,18 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/auth';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 const formStyle = {
   margin: '1rem',
   display: 'flex',
   flexDirection: 'column'
 }
 
-const inputStyle = {
-  border: '1px solid black',
-  padding: '.5rem'
-}
-
 const titleStyle = {
   display: 'flex',
   justifyContent: 'center'
-}
-
-const buttonStyle = {
-  backgroundColor: '#0074D9',
-  color: 'white',
-  fontSize: '1rem',
-  padding: '0.5rem'
 }
 
 function SignIn({
@@ -65,29 +56,29 @@ function SignIn({
       style={formStyle}
     >
       <h1 style={titleStyle}>Se connecter</h1>
-      <input
+      <TextField
+        autoFocus
         value={name}
         onChange={handleChange}
         name='name'
-        style={inputStyle}
         placeholder='Nom'
       />
       <br />
-      <input
+      <TextField
         value={password}
         onChange={handleChange}
         name='password'
         type='password'
-        style={inputStyle}
         placeholder='Mot de passe'
       />
       <br />
-      <button
+      <Button
+        variant='contained'
+        color='primary'
         type="submit"
-        style={buttonStyle}
       >
         Se connecter
-      </button>
+      </Button>
     </form>
   )
 }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwtSecret = process.env.JWT_SECRET || config.get('jwtSecret');
 
@@ -69,10 +69,8 @@ UserSchema.statics.findByCredentials = async (name, password) => {
   if (!user) {
     throw new Error('Invalid Credentials');
   }
-  console.log(password, user.password);
 
   const isMatch = await bcrypt.compare(password, user.password);
-  console.log(isMatch)
 
   if (!isMatch) {
     throw new Error('Invalid Credentials');
@@ -90,12 +88,5 @@ UserSchema.methods.generateAuthToken = async function () {
   );
   return token;
 };
-
-// Encrypt password
-UserSchema.pre('save', async function (next) {
-  const user = this;
-  user.password = await bcrypt.hash(user.password, 10);
-  next();
-});
 
 module.exports = User = mongoose.model('user', UserSchema);

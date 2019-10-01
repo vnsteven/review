@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { sendReview } from '../../store/actions/review';
@@ -14,27 +14,23 @@ const cardStyle = {
   margin: '1rem'
 }
 
-const buttonStyle = {
-  backgroundColor: '#0074D9',
-  color: 'white',
-  fontSize: '1rem',
-  padding: '0.5rem'
-};
-
 function UserCard({
   location,
   id,
   name,
   sendReview
 }) {
+  const [isSent, setIsSent] = useState(false);
   const params = new URLSearchParams(location.search);
+  const title = params.get('title');
+  const description = params.get('overview');
 
   function handleSend() {
     sendReview(id, {
-      sender: id,
-      title: params.get('title'),
-      description: params.get('overview')
+      title,
+      description
     })
+    setIsSent(true);
   }
 
   return (
@@ -43,19 +39,14 @@ function UserCard({
         <h3>{name}</h3>
       </CardContent>
       <CardActions>
-        <Link
-          to={`#`}
-          style={{ textDecoration: 'none' }}
+        <Button
+          onClick={handleSend}
+          variant='contained'
+          color='primary'
+          disabled={isSent}
         >
-          <Button
-            onClick={handleSend}
-            variant='contained'
-            color='primary'
-            style={buttonStyle}
-          >
-            Envoyer
-          </Button>
-        </Link>
+          {isSent ? 'Envoyé' : 'Envoyer'}
+        </Button>
       </CardActions>
     </Card>
   )
