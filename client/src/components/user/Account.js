@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 import { connect } from 'react-redux';
 
@@ -28,12 +29,14 @@ function Account({
 
   return (
     <div style={accountStyle}>
-      <button
+      <Button
+        variant='contained'
+        color='primary'
         style={buttonStyle}
         onClick={handleSubmit}
       >
         Se déconnecter
-      </button>
+      </Button>
     </div>
   );
 }

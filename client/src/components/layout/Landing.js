@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 import { connect } from 'react-redux';
 
@@ -25,8 +26,16 @@ function Landing({ isAuthenticated }) {
 
   return (
     <div style={landingStyle}>
-      <Link to='/sign-up'><button style={buttonStyle}>Nouveau ?</button></Link>
-      <Link to='/sign-in'><button style={buttonStyle}>Déjà un compte ?</button></Link>
+      <Link to='sign-up' style={{ textDecoration: 'none' }}>
+        <Button variant="contained" color="primary" style={buttonStyle}>
+          Nouveau ?
+        </Button>
+      </Link>
+      <Link to='sign-in' style={{ textDecoration: 'none' }}>
+        <Button variant="contained" color="primary" style={buttonStyle}>
+          Déjà un compte ?
+        </Button>
+      </Link>
     </div>
   )
 }
