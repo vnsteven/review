@@ -12,12 +12,12 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case SEND_REVIEW:
+    case GET_REVIEWS:
       return {
         ...state,
         inbox: [...payload]
       }
-    case GET_REVIEWS:
+    case SEND_REVIEW:
     default:
       return state;
   }

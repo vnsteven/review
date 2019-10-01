@@ -31,6 +31,7 @@ function SearchList() {
     <Fragment>
       <form style={formStyle}>
         <TextField
+          autoFocus
           value={searchValue}
           onChange={handleChange}
           margin="normal"

@@ -6,7 +6,8 @@ import UserCard from './UserCard';
 
 function UserList({
   getUsers,
-  user: { users }
+  user: { users },
+  auth
 }) {
   useEffect(() => {
     getUsers();
@@ -16,6 +17,7 @@ function UserList({
     <div>
       {
         users.map(user => (
+          auth.user._id !== user._id &&
           <UserCard
             id={user._id}
             key={user._id}
@@ -28,7 +30,8 @@ function UserList({
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  auth: state.auth
 })
 
 export default connect(
