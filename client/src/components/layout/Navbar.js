@@ -18,7 +18,7 @@ function Navbar() {
     <div style={navStyle}>
       <Link to='/contact' style={linkStyle}><span style={linkStyle}>Contacts</span></Link>
       <Link to='/create' style={linkStyle}><span style={linkStyle}>Créer</span></Link>
-      <Link to='/add' style={linkStyle}><span style={linkStyle}>Ajoutées</span></Link>
+      <Link to='/added' style={linkStyle}><span style={linkStyle}>Ajoutées</span></Link>
       <Link to='/account' style={linkStyle}><span style={linkStyle}>Compte</span></Link>
     </div>
   )

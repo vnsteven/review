@@ -8,7 +8,8 @@ import SignUp from '../components/auth/SignUp';
 import SignIn from '../components/auth/SignIn';
 import Account from '../components/user/Account';
 import SearchList from '../components/search/SearchList';
-import Sendbox from '../components/sendbox/Sendbox';
+import UserList from '../components/contact/UserList';
+import ReviewSection from '../components/reviews/ReviewSection';
 
 function Routes({ isAuthenticated }) {
   const guest = (
@@ -24,7 +25,8 @@ function Routes({ isAuthenticated }) {
         {!isAuthenticated && guest}
         <PrivateRoute path='/account' component={Account} />
         <PrivateRoute path='/create' component={SearchList} />
-        <PrivateRoute path='/send' component={Sendbox} />
+        <PrivateRoute path='/send' component={UserList} />
+        <PrivateRoute path='/added' component={ReviewSection} />
       </Switch>
     </Fragment>
   )

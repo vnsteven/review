@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {
   GET_USERS,
-  USERS_ERROR
+  USER_ERROR
 } from './types';
 
 export const getUsers = () => async dispatch => {
@@ -15,7 +15,7 @@ export const getUsers = () => async dispatch => {
     })
   } catch (error) {
     dispatch({
-      type: USERS_ERROR
+      type: USER_ERROR
     })
   }
 }

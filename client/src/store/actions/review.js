@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 import {
-  SEND_REVIEW
+  SEND_REVIEW,
+  GET_REVIEWS,
+  REVIEW_ERROR
 } from './types';
 
 export const sendReview = (userId, data) => async dispatch => {
@@ -19,6 +21,22 @@ export const sendReview = (userId, data) => async dispatch => {
       payload: res.data
     })
   } catch (error) {
+    dispatch({
+      type: REVIEW_ERROR
+    })
+  }
+}
 
+export const getInbox = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/users/inbox')
+    dispatch({
+      type: GET_REVIEWS,
+      payload: res.data
+    })
+  } catch (error) {
+    dispatch({
+      type: REVIEW_ERROR
+    })
   }
 }

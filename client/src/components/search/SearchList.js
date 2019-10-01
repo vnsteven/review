@@ -14,7 +14,7 @@ function SearchList() {
 
   async function handleChange(e) {
     setSearchValue(e.target.value);
-    if (searchValue.length > 3) {
+    if (searchValue.length > 1) {
       const res = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=6f7143ca51e64aa9d8ca2d8289dc7ac4&language=fr-FR&query=${searchValue}&page=1&include_adult=false`,
         {

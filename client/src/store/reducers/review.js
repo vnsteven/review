@@ -1,5 +1,6 @@
 import {
-  SEND_REVIEW
+  SEND_REVIEW,
+  GET_REVIEWS
 } from '../actions/types';
 
 const initialState = {
@@ -14,8 +15,9 @@ export default function (state = initialState, action) {
     case SEND_REVIEW:
       return {
         ...state,
-        inbox: [...state.inbox, payload]
+        inbox: [...payload]
       }
+    case GET_REVIEWS:
     default:
       return state;
   }
