@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import SearchCard from './SearchCard';
+import { urlTMDB } from '../../utils/constants';
 
 const formStyle = {
   display: 'flex',
@@ -17,7 +18,7 @@ function SearchList() {
     setSearchValue(e.target.value);
     if (value.length >= 1) {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=6f7143ca51e64aa9d8ca2d8289dc7ac4&language=fr-FR&query=${value}&page=1&include_adult=false`,
+        `${urlTMDB}&language=fr-FR&query=${value}&page=1&include_adult=false`,
         {
           method: 'GET'
         })
