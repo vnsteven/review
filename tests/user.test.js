@@ -1,4 +1,5 @@
 const request = require('supertest');
+const mongoose = require('mongoose');
 const app = require('../app');
 const {
   user,
@@ -6,6 +7,7 @@ const {
 } = require('./fixtures/db');
 
 beforeEach(setupDatabase);
+afterAll(() => mongoose.disconnect());
 let token;
 
 describe('User Authentication', () => {

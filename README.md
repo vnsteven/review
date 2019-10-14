@@ -76,10 +76,10 @@ const UserSchema = new mongoose.Schema(
 
 #### Auth
 
-| Request methods | Routes    | Descriptions                        | Access  |
-| --------------- | --------- | ----------------------------------- | ------- |
-| GET             | api/auth/ | Get authenticated user              | Private |
-| POST            | api/auth  | Authenticate a user and get a token | Public  |
+| Request methods | Routes   | Descriptions                        | Access  |
+| --------------- | -------- | ----------------------------------- | ------- |
+| GET             | api/auth | Get authenticated user              | Private |
+| POST            | api/auth | Authenticate a user and get a token | Public  |
 
 #### User
 
@@ -131,4 +131,5 @@ All accepted reviews.
 ### DevOps
 
 - Travis CI
+- Coveralls
 - Heroku
