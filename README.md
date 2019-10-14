@@ -43,60 +43,6 @@ This REST API has been built with NodeJS.
 
 This app is based on a single User model using [TMDb API](https://developers.themoviedb.org/3/getting-started/introduction).
 
-```javascript
-const UserSchema = new mongoose.Schema(
-	{
-		name: {
-			type: String,
-			required: true
-		},
-		phonenumber: {
-			type: String,
-			required: true
-		},
-		password: {
-			type: String,
-			required: true
-		},
-		reviews: [
-			{
-				sender: {
-					type: mongoose.Schema.Types.ObjectId,
-					ref: 'user'
-				},
-				title: {
-					type: String,
-					required: true
-				},
-				description: {
-					type: String,
-					required: true
-				}
-			}
-		],
-		inbox: [
-			{
-				sender: {
-					type: mongoose.Schema.Types.ObjectId,
-					ref: 'user'
-				},
-				title: {
-					type: String,
-					required: true
-				},
-				description: {
-					type: String,
-					required: true
-				}
-			}
-		]
-	},
-	{
-		timestamps: true
-	}
-);
-```
-
 ### API
 
 #### Auth
