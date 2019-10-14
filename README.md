@@ -3,6 +3,27 @@
 An application for sending movie reviews to your friends. <br />
 The work is in progress and will be a PWA. <br />
 
+## Getting start
+
+```
+// Clone the repo
+git clone https://github.com/vnsteven/review
+
+// Install npm packages on both client and server sides
+$ npm install
+$ cd client
+$ npm install
+
+// Start server
+$ npm run server
+
+// Start app (client and server)
+$ npm run dev
+
+// Testing
+$ npm test
+```
+
 ## Features
 
 - Authentication
