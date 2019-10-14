@@ -1,9 +1,14 @@
-# review-app [![Build Status](https://travis-ci.com/vnsteven/review.svg?token=DqpoLj6G47n3mCsLE5Mf&branch=master)](https://travis-ci.com/vnsteven/review) [![Coverage Status](https://coveralls.io/repos/github/vnsteven/review/badge.svg)](https://coveralls.io/github/vnsteven/review)
+# review-app
+
+[![Build Status](https://travis-ci.com/vnsteven/review.svg?token=DqpoLj6G47n3mCsLE5Mf&branch=master)](https://travis-ci.com/vnsteven/review)
+[![Coverage Status](https://coveralls.io/repos/github/vnsteven/review/badge.svg)](https://coveralls.io/github/vnsteven/review)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![eslint: airbnb](https://img.shields.io/badge/eslint-airbnb-%23fd5c63.svg)](https://www.npmjs.com/package/eslint-config-airbnb)
 
 An application for sending movie reviews to your friends. <br />
 The work is in progress and will be a PWA. <br />
 
-## Getting start
+## Getting started
 
 ```
 // Clone the repo
@@ -40,55 +45,55 @@ This app is based on a single User model using [TMDb API](https://developers.the
 
 ```javascript
 const UserSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true
-    },
-    phonenumber: {
-      type: String,
-      required: true
-    },
-    password: {
-      type: String,
-      required: true
-    },
-    reviews: [
-      {
-        sender: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'user'
-        },
-        title: {
-          type: String,
-          required: true
-        },
-        description: {
-          type: String,
-          required: true
-        }
-      }
-    ],
-    inbox: [
-      {
-        sender: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'user'
-        },
-        title: {
-          type: String,
-          required: true
-        },
-        description: {
-          type: String,
-          required: true
-        }
-      }
-    ]
-  },
-  {
-    timestamps: true
-  }
+	{
+		name: {
+			type: String,
+			required: true
+		},
+		phonenumber: {
+			type: String,
+			required: true
+		},
+		password: {
+			type: String,
+			required: true
+		},
+		reviews: [
+			{
+				sender: {
+					type: mongoose.Schema.Types.ObjectId,
+					ref: 'user'
+				},
+				title: {
+					type: String,
+					required: true
+				},
+				description: {
+					type: String,
+					required: true
+				}
+			}
+		],
+		inbox: [
+			{
+				sender: {
+					type: mongoose.Schema.Types.ObjectId,
+					ref: 'user'
+				},
+				title: {
+					type: String,
+					required: true
+				},
+				description: {
+					type: String,
+					required: true
+				}
+			}
+		]
+	},
+	{
+		timestamps: true
+	}
 );
 ```
 
