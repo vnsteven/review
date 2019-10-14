@@ -6,9 +6,6 @@ const bcrypt = require('bcryptjs');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 
-// @route  POST api/user
-// @desc   Register a user
-// @access Public
 router.post(
   '/',
   [
@@ -65,9 +62,6 @@ router.post(
   }
 )
 
-// @route  GET api/user
-// @desc   Get all users
-// @access Private
 router.get('/', auth, async (req, res) => {
   try {
     const users = await User.find().select('-password');

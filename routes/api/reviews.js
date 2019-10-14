@@ -4,9 +4,6 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 
-// @route  POST api/user/reviews/:inbox_id
-// @desc   Accept a review in the inbox
-// @access Private
 router.post('/:inbox_id', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -26,9 +23,6 @@ router.post('/:inbox_id', auth, async (req, res) => {
   }
 })
 
-// @route  GET api/user/reviews
-// @desc   Get reviews by auth user 
-// @access Private
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -40,9 +34,6 @@ router.get('/', auth, async (req, res) => {
   }
 })
 
-// @route  DELETE api/user/reviews/:review_id
-// @desc   Delete a review by review id
-// @access Private
 router.delete('/:review_id', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);

@@ -5,9 +5,6 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 
-// @route  POST api/user/inbox/:user_id
-// @desc   Send a review to a user
-// @access Private
 router.post('/:user_id', auth, async (req, res) => {
   const { title, description } = req.body;
 
@@ -31,9 +28,6 @@ router.post('/:user_id', auth, async (req, res) => {
   }
 })
 
-// @route  GET api/user/inbox
-// @desc   Get inbox auth user 
-// @access Private
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -44,9 +38,6 @@ router.get('/', auth, async (req, res) => {
   }
 })
 
-// @route  DELETE api/user/inbox
-// @desc   Get inbox auth user 
-// @access Private
 router.delete('/:inbox_id', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
