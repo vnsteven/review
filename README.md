@@ -1,7 +1,7 @@
 # review-app
 
 [![Build Status](https://travis-ci.com/vnsteven/review.svg?token=DqpoLj6G47n3mCsLE5Mf&branch=master)](https://travis-ci.com/vnsteven/review)
-[![Coverage Status](https://coveralls.io/repos/github/vnsteven/review/badge.svg)](https://coveralls.io/github/vnsteven/review)
+[![Coverage Status](https://coveralls.io/repos/github/vnsteven/review/badge.svg?branch=master)](https://coveralls.io/github/vnsteven/review?branch=master)
 
 An application for sending movie reviews to your friends. <br />
 The work is in progress and will be a PWA. <br />
