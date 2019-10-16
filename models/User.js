@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const config = require('config');
+
 const jwtSecret = process.env.JWT_SECRET || config.get('jwtSecret');
 
 const UserSchema = new mongoose.Schema({
@@ -84,4 +85,5 @@ UserSchema.statics.findByCredentials = async (name, password) => {
   return user;
 };
 
-module.exports = User = mongoose.model('user', UserSchema);
+const User = mongoose.model('user', UserSchema);
+module.exports = User;

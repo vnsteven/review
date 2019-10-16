@@ -12,7 +12,7 @@ The work is in progress and will be a PWA. <br />
 
 ```
 // Clone the repo
-git clone https://github.com/vnsteven/review
+$ git clone https://github.com/vnsteven/review
 
 // Install npm packages on both client and server sides
 $ npm install

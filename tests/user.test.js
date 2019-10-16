@@ -80,16 +80,26 @@ describe('User Authentication', () => {
 
     token = res.body.token;
   })
-})
 
-it('Should not sign in a non existing user', async () => {
-  await request(app)
-    .post('/api/auth')
-    .send({
-      name: 'Johnny',
-      password: 'foobar'
-    })
-    .expect(400)
+  it('Should not sign in a non existing user', async () => {
+    await request(app)
+      .post('/api/auth')
+      .send({
+        name: 'Johnny',
+        password: 'foobar'
+      })
+      .expect(400)
+  })
+
+  it('Should not sign in an invalid credentials', async () => {
+    await request(app)
+      .post('/api/auth')
+      .send({
+        name: user.name,
+        password: 'foobaru'
+      })
+      .expect(400)
+  })
 })
 
 // MIDDLEWARE
