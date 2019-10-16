@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
@@ -23,12 +24,13 @@ router.post(
       })
   ],
   async (req, res) => {
-    const errors = validationResult(req);
+    const result = validationResult(req);
+    const { errors } = result;
 
-    if (!errors) {
+    if (errors.length !== 0) {
       return res
         .status(400)
-        .json({ errors: errors.array() })
+        .json({ errors })
     }
 
     const { name, phonenumber, password } = req.body;

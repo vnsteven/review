@@ -46,10 +46,10 @@ router.delete('/:inbox_id', auth, async (req, res) => {
     const inboxItem = inbox.find(el => el.id.toString() === req.params.inbox_id);
     const index = inbox.indexOf(inboxItem);
 
+    if (!inboxItem) throw new Error();
+
     inbox.splice(index, 1);
-
     await user.save();
-
     res.json(inbox);
   } catch (error) {
     console.error(error.message);

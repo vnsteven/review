@@ -11,6 +11,8 @@ router.post('/:inbox_id', auth, async (req, res) => {
     const inboxItem = inbox.find(el => el.id.toString() === req.params.inbox_id);
     const index = inbox.indexOf(inboxItem);
 
+    if (!inboxItem) throw new Error();
+
     reviews.unshift(inboxItem);
     inbox.splice(index, 1);
 
@@ -18,7 +20,7 @@ router.post('/:inbox_id', auth, async (req, res) => {
 
     res.json(reviews);
   } catch (error) {
-    console.error(error.messages);
+    console.error(error.message);
     res.status(500).send('Server error');
   }
 })
@@ -29,7 +31,7 @@ router.get('/', auth, async (req, res) => {
     const { reviews } = user;
     res.json(reviews);
   } catch (error) {
-    console.error(error.messages);
+    console.error(error.message);
     res.status(500).send('Server error');
   }
 })
@@ -41,13 +43,15 @@ router.delete('/:review_id', auth, async (req, res) => {
     const review = reviews.find(el => el.id.toString() === req.params.review_id);
     const index = reviews.indexOf(review);
 
+    if (!review) throw new Error();
+
     reviews.splice(index, 1);
 
     await user.save();
 
     res.send(reviews);
   } catch (error) {
-    console.error(error.messages);
+    console.error(error.message);
     res.status(500).send('Server error');
   }
 })
