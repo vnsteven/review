@@ -24,13 +24,12 @@ router.post(
       })
   ],
   async (req, res) => {
-    const result = validationResult(req);
-    const { errors } = result;
+    const errors = validationResult(req);
 
-    if (errors.length !== 0) {
+    if (!errors.isEmpty()) {
       return res
         .status(400)
-        .json({ errors })
+        .json({ errors: errors.array() })
     }
 
     const { name, phonenumber, password } = req.body;
@@ -51,11 +50,8 @@ router.post(
       })
 
       user.password = await bcrypt.hash(user.password, 10);
-
       await user.save();
-
       const token = await user.generateAuthToken();
-
       res.json({ user, token });
     } catch (error) {
       console.error(error.message);

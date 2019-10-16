@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../../models/User');
 
-const user = {
+const userOne = {
   _id: new mongoose.Types.ObjectId(),
   name: 'John',
   phonenumber: '0123452304',
@@ -22,12 +22,21 @@ const user = {
   ]
 }
 
+const userTwo = {
+  _id: new mongoose.Types.ObjectId(),
+  name: 'Jane',
+  phonenumber: '0123456789',
+  password: 'foobar'
+}
+
 const setupDatabase = async () => {
   await User.deleteMany();
-  await new User(user).save();
+  await new User(userOne).save();
+  await new User(userTwo).save();
 }
 
 module.exports = {
-  user,
+  userOne,
+  userTwo,
   setupDatabase
 }

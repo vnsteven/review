@@ -19,14 +19,20 @@ router.get('/', auth, async (req, res) => {
 router.post(
   '/',
   [
-    check('name', 'Name is required').exists(),
-    check('password', 'Password is required').exists()
+    check('name', 'Name is required')
+      .not()
+      .isEmpty(),
+    check('password', 'Password is required')
+      .not()
+      .isEmpty()
   ],
   async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res
+        .status(400)
+        .json({ errors: errors.array() });
     }
 
     const { name, password } = req.body;

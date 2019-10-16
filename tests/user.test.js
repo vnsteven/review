@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 const app = require('../app');
 const {
-  user,
+  userOne,
   setupDatabase
 } = require('./fixtures/db');
 
@@ -62,7 +62,7 @@ describe('User Authentication', () => {
       .post('/api/users')
       .send({
         name: 'Roger',
-        phonenumber: user.phonenumber,
+        phonenumber: userOne.phonenumber,
         password: 'foobar'
       })
       .expect(400)
@@ -73,7 +73,7 @@ describe('User Authentication', () => {
     const res = await request(app)
       .post('/api/auth')
       .send({
-        name: user.name,
+        name: userOne.name,
         password: 'foobar'
       })
       .expect(200)
@@ -95,15 +95,25 @@ describe('User Authentication', () => {
     await request(app)
       .post('/api/auth')
       .send({
-        name: user.name,
+        name: userOne.name,
         password: 'foobaru'
+      })
+      .expect(400)
+  })
+
+  it('Should not sign in empty inputs', async () => {
+    await request(app)
+      .post('/api/auth')
+      .send({
+        name: '',
+        password: ''
       })
       .expect(400)
   })
 })
 
 // MIDDLEWARE
-describe('Middleware token test', () => {
+describe('Middleware', () => {
   it('Should not get authenticated user with wrong token', async () => {
     await request(app)
       .get('/api/auth')
@@ -132,7 +142,7 @@ describe('Get User', () => {
 describe('Inbox', () => {
   it('Should send a review to an existing user', async () => {
     await request(app)
-      .post(`/api/users/inbox/${user._id}`)
+      .post(`/api/users/inbox/${userOne._id}`)
       .set('x-auth-token', token)
       .send({
         'title': 'Movie',
@@ -161,7 +171,7 @@ describe('Inbox', () => {
 
   it('Should delete an inbox element', async () => {
     await request(app)
-      .delete(`/api/users/inbox/${user.inbox[0]._id}`)
+      .delete(`/api/users/inbox/${userOne.inbox[0]._id}`)
       .set('x-auth-token', token)
       .expect(200)
   })
@@ -178,7 +188,7 @@ describe('Inbox', () => {
 describe('Reviews', () => {
   it('Should create a review from an inbox element', async () => {
     await request(app)
-      .post(`/api/users/reviews/${user.inbox[0]._id}`)
+      .post(`/api/users/reviews/${userOne.inbox[0]._id}`)
       .set('x-auth-token', token)
       .expect(200)
   })
@@ -199,7 +209,7 @@ describe('Reviews', () => {
 
   it('Should delete a review', async () => {
     await request(app)
-      .delete(`/api/users/reviews/${user.reviews[0]._id}`)
+      .delete(`/api/users/reviews/${userOne.reviews[0]._id}`)
       .set('x-auth-token', token)
       .expect(200)
   })
