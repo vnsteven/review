@@ -9,6 +9,8 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Routes from './routing/Routes';
 
+import './App.scss';
+
 function App({
   isAuthenticated,
   loadUser

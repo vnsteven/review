@@ -4,8 +4,8 @@ import PrivateRoute from './PrivateRoute';
 
 import { connect } from 'react-redux';
 
-import SignUp from '../components/auth/SignUp';
-import SignIn from '../components/auth/SignIn';
+import SignUp from '../components/auth/SignUp/SignUp';
+import SignIn from '../components/auth/SignIn/SignIn';
 import Account from '../components/profile/Account';
 import SearchList from '../components/search/SearchList';
 import UserList from '../components/user/UserList';

@@ -84,6 +84,7 @@ All accepted reviews.
 
 - React
 - Redux
+- SASS
 - Material UI
 
 ### Back

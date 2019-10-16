@@ -1,0 +1,67 @@
+@import '../../../assets/sass/main.scss';
+
+.sign-in {
+  font-size: $default-font-size;
+  overflow: hidden;
+}
+
+.heading {
+  background-color: $color-primary;
+  text-align: center;
+  padding: 1rem 0;
+
+  &__title {
+    color: $color-white;
+  }
+}
+
+.form {
+  margin-top: 1rem;
+  margin-bottom: 15rem;
+
+  &__group {
+    margin: 0 auto;
+    width: 17rem;
+    box-shadow: $default-box-shadow;
+
+    &:first-child {
+      border-bottom: 2px solid $color-grey;
+    }
+
+    &:not(:last-child) {
+      background-color: $color-white;
+      padding: 1rem 0;
+    }
+
+    &:last-child {
+      margin-top: 1rem;
+    }
+
+    &--input {
+      transform: translateY(-0.9rem);
+      border: none;
+      float: right;
+      padding: 0.9rem 0.4rem;
+      font-size: inherit;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &--label {
+      font-weight: 700;
+      padding: 0 1rem;
+    }
+
+    &--button {
+      box-shadow: $default-box-shadow;
+      background-color: $color-primary;
+      border-radius: 0.2rem;
+      color: $color-white;
+      padding: 0.8rem 3rem;
+      width: 17.1rem;
+      font-size: inherit;
+    }
+  }
+}

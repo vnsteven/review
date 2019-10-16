@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { signIn } from '../../store/actions/auth';
+import { register } from '../../../store/actions/auth';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -20,25 +20,34 @@ const titleStyle = {
   justifyContent: 'center'
 }
 
-function SignIn({
-  signIn,
+function SignUp({
+  register,
   history
 }) {
   const [formData, setFormData] = useState({
     name: '',
-    password: ''
+    phonenumber: '',
+    password: '',
+    password2: ''
   })
 
   const {
     name,
-    password
+    phonenumber,
+    password,
+    password2
   } = formData;
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    signIn({
+    if (password !== password2) {
+      return console.error('Wrong password');
+    }
+
+    register({
       name,
+      phonenumber,
       password
     }, history);
   }
@@ -55,13 +64,20 @@ function SignIn({
       onSubmit={handleSubmit}
       style={formStyle}
     >
-      <h1 style={titleStyle}>Se connecter</h1>
+      <h1 style={titleStyle}>Créer un compte</h1>
       <TextField
         autoFocus
         value={name}
         onChange={handleChange}
         name='name'
         placeholder='Nom'
+      />
+      <br />
+      <TextField
+        value={phonenumber}
+        onChange={handleChange}
+        name='phonenumber'
+        placeholder='Téléphone'
       />
       <br />
       <TextField
@@ -72,23 +88,31 @@ function SignIn({
         placeholder='Mot de passe'
       />
       <br />
+      <TextField
+        value={password2}
+        onChange={handleChange}
+        name='password2'
+        type='password'
+        placeholder='Confirmer le mot de passe'
+      />
+      <br />
       <Button
         variant='contained'
         color='primary'
         type="submit"
       >
-        Se connecter
+        Inscription
       </Button>
     </form>
   )
 }
 
-SignIn.propTypes = {
-  signIn: PropTypes.func.isRequired,
+SignUp.propTypes = {
+  register: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 }
 
 export default connect(
   null,
-  { signIn }
-)(withRouter(SignIn));
+  { register }
+)(withRouter(SignUp));
