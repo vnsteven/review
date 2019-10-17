@@ -51,8 +51,10 @@
     text-align: center;
 
     &--button {
+      cursor: pointer;
       box-shadow: $default-box-shadow;
       background-color: $color-primary;
+      border: 1px solid $color-primary;
       border-radius: 0.2rem;
       color: $color-white;
       padding: 0.8rem 3rem;

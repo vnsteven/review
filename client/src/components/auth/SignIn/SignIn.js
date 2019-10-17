@@ -43,7 +43,7 @@ function SignIn({
       <h2 className="heading">
         <div className="heading__title">
           Se connecter
-          </div>
+        </div>
       </h2>
       <form
         className="form"
@@ -52,7 +52,7 @@ function SignIn({
         <div className="form__group">
           <label htmlFor="name" className="form__group--label">
             Nom
-            </label>
+          </label>
           <input
             name='name'
             id='name'
@@ -67,9 +67,10 @@ function SignIn({
         <div className="form__group">
           <label htmlFor="password" className="form__group--label">
             Mot de passe
-            </label>
+          </label>
           <input
             name='password'
+            id='password'
             value={password}
             onChange={handleChange}
             type="password"
