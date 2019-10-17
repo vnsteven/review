@@ -40,11 +40,11 @@ function SignIn({
 
   return (
     <div className="sign-in">
-      <h3 className="heading">
+      <h2 className="heading">
         <div className="heading__title">
           Se connecter
           </div>
-      </h3>
+      </h2>
       <form
         className="form"
         onSubmit={handleSubmit}
@@ -77,10 +77,10 @@ function SignIn({
             required
           />
         </div>
-        <div className="form__group">
+        <div className="form__submit">
           <button
             type="submit"
-            className="form__group--button"
+            className="form__submit--button"
           >
             Se connecter
           </button>

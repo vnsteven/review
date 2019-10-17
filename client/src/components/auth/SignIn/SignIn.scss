@@ -21,28 +21,19 @@
 
   &__group {
     margin: 0 auto;
-    width: 17rem;
+    width: $card-width;
     box-shadow: $default-box-shadow;
-
-    &:first-child {
-      border-bottom: 2px solid $color-grey;
-    }
-
-    &:not(:last-child) {
-      background-color: $color-white;
-      padding: 1rem 0;
-    }
-
-    &:last-child {
-      margin-top: 1rem;
-    }
+    border-bottom: 2px solid $color-grey;
+    background-color: $color-white;
+    padding: 1rem 0;
+    box-sizing: border-box;
 
     &--input {
-      transform: translateY(-0.9rem);
       border: none;
+      width: 12rem;
       float: right;
-      padding: 0.9rem 0.4rem;
       font-size: inherit;
+      font-family: inherit;
 
       &:focus {
         outline: none;
@@ -53,6 +44,11 @@
       font-weight: 700;
       padding: 0 1rem;
     }
+  }
+
+  &__submit {
+    padding-top: 1rem;
+    text-align: center;
 
     &--button {
       box-shadow: $default-box-shadow;
@@ -60,8 +56,9 @@
       border-radius: 0.2rem;
       color: $color-white;
       padding: 0.8rem 3rem;
-      width: 17.1rem;
+      width: $card-width;
       font-size: inherit;
+      font-family: inherit;
     }
   }
 }
