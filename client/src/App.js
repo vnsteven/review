@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { loadUser } from './store/actions/auth';
 
 import Navbar from './components/layout/Navbar';
-import Landing from './components/layout/Landing';
+import Landing from './components/layout/Landing/Landing';
 import Routes from './routing/Routes';
 
 import './App.scss';

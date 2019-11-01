@@ -1,0 +1,62 @@
+.form {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 10rem;
+  padding: 2rem;
+  height: 95vh;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &--label {
+      font-weight: 800;
+      margin-left: 1.3rem;
+    }
+
+    &--input {
+      font-size: inherit;
+      font-family: inherit;
+      border: 1px solid var(--color-grey-light-4);
+      border-radius: 1rem;
+      padding: 1.3rem 2rem;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+
+    &--button {
+      font-family: inherit;
+      font-size: inherit;
+      color: var(--color-grey-light-1);
+
+      width: inherit;
+      font-weight: 600;
+      padding: 1.3rem 2rem;
+      margin-top: 1rem;
+
+      border-radius: 1rem;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-primary);
+    }
+  }
+
+  & .sign-up,
+  & .sign-in {
+    margin-top: 1rem;
+
+    & a {
+      color: currentColor;
+      text-decoration: none;
+    }
+  }
+}
