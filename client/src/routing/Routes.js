@@ -23,6 +23,7 @@ function Routes({ isAuthenticated }) {
     <Fragment>
       <Switch>
         {!isAuthenticated && guest}
+        <PrivateRoute exact path='/create' component={SearchList} />
         <PrivateRoute path='/account' component={Account} />
         <PrivateRoute path='/create' component={SearchList} />
         <PrivateRoute path='/send' component={UserList} />

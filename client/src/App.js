@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadUser } from './store/actions/auth';
 
-import Navbar from './components/layout/Navbar';
+import NavTop from './components/layout/NavTop/NavTop';
+import Navbar from './components/layout/Navbar/Navbar';
 import Landing from './components/layout/Landing/Landing';
+
 import Routes from './routing/Routes';
 
 import './App.scss';
@@ -21,11 +23,24 @@ function App({
 
   return (
     <Fragment>
-      {isAuthenticated && <Navbar />}
-      <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route component={Routes} />
-      </Switch>
+      {
+        isAuthenticated &&
+        <header className="header">
+          <NavTop />
+        </header>
+      }
+      <main className="app">
+        <Switch>
+          <Route exact path='/' component={Landing} />
+          <Route component={Routes} />
+        </Switch>
+      </main>
+      {
+        isAuthenticated &&
+        <footer className="footer">
+          <Navbar />
+        </footer>
+      }
     </Fragment>
   );
 }

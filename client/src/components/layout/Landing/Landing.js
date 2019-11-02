@@ -4,7 +4,7 @@ import { Link, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './Landing.scss';
-import { ReactComponent as Logo } from '../../../assets/img/logo.svg';
+import { ReactComponent as Logo } from '../../../assets/svg/logo.svg';
 
 function Landing({ isAuthenticated }) {
   if (isAuthenticated) {
@@ -12,29 +12,29 @@ function Landing({ isAuthenticated }) {
   }
 
   return (
-    <div className="container">
-      <header className="header">
-        <h1 className="header__title">
+    <div className="landing">
+      <header className="landing__header">
+        <h1 className="landing__header--title">
           Bienvenue sur Reco. !
         </h1>
-        <div className="header__logo">
+        <div className="landing__header--logo">
           <Logo />
         </div>
       </header>
-      <div className="btn">
-        <button className="btn__facebook">
+      <div className="landing__btn">
+        <button className="landing__btn--facebook">
           <Link to='#'>
             Se connecter avec Facebook
           </Link>
         </button>
-        <button className="btn__sign-up">
+        <button className="landing__btn--sign-up">
           <Link
             to='sign-up'
           >
             S'inscrire
           </Link>
         </button>
-        <button className="btn__sign-in">
+        <button className="landing__btn--sign-in">
           <Link to='sign-in'>
             Se connecter
           </Link>

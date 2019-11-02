@@ -1,77 +1,66 @@
-.container {
+.landing {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 2rem;
-  min-height: 95vh;
-}
+  margin-top: -4rem;
+  padding: 0 2rem;
+  min-height: 100vh;
 
-.header {
-  margin-top: 3rem;
-  font-size: 1.4rem;
-
-  flex: 0 0 60%;
-  margin-bottom: auto;
-  text-align: center;
-
-  &__logo {
+  &__header {
     margin-top: 3rem;
-    position: relative;
+    font-size: var(--font-size-medium);
 
-    &--letter {
-      position: absolute;
-      top: 5.6rem;
-      left: 13.8rem;
-    }
+    flex: 0 0 60%;
+    margin-bottom: auto;
+    text-align: center;
 
-    &--dot {
-      position: absolute;
-      top: 9.4rem;
-      right: 11.5rem;
-    }
-  }
-}
-
-.btn {
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-
-  & > * {
-    cursor: pointer;
-    font-weight: 600;
-    padding: 1.3rem 2rem;
-    margin-bottom: 1.4rem;
-
-    border-radius: 1rem;
-    border: 1px solid var(--color-primary);
-
-    & a {
-      text-decoration: none;
-      font-size: 1.4rem;
-      color: var(--color-primary);
+    &--logo {
+      margin-top: 3rem;
+      position: relative;
     }
   }
 
-  &__sign-up {
-    background-color: var(--color-primary);
+  &__btn {
+    text-align: center;
 
-    & a {
-      color: var(--color-grey-light-1);
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 1.3rem 2rem;
+      margin-bottom: 1.4rem;
+
+      border-radius: 1rem;
+      border: 1px solid var(--color-primary);
+
+      & a {
+        text-decoration: none;
+        font-size: var(--font-size-medium);
+        color: var(--color-primary);
+      }
     }
-  }
 
-  &__sign-in {
-    background-color: inherit;
-  }
+    &--sign-up {
+      background-color: var(--color-primary);
 
-  &__facebook {
-    background-color: #4367b2;
+      & a {
+        color: var(--color-grey-light-1);
+      }
+    }
 
-    & a {
-      color: var(--color-grey-light-1);
+    &--sign-in {
+      background-color: inherit;
+    }
+
+    &--facebook {
+      background-color: #4367b2;
+
+      & a {
+        color: var(--color-grey-light-1);
+      }
     }
   }
 }

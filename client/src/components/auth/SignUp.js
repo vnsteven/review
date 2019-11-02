@@ -47,6 +47,15 @@ function SignUp({
     })
   }
 
+  let isActive = false;
+  if (name.length > 0 &&
+    phonenumber.length > 0 &&
+    password.length > 0 &&
+    password2.length > 0
+  ) {
+    isActive = !isActive
+  }
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -54,7 +63,7 @@ function SignUp({
     >
       <div className="form__group">
         <label htmlFor="name" className="form__group--label">
-          Nom
+          Nom *
         </label>
         <input
           autoFocus
@@ -65,60 +74,64 @@ function SignUp({
           name='name'
           placeholder='3 caractères min'
           className="form__group--input"
+          required
         />
       </div>
       <div className="form__group">
-        <label htmlFor="name" className="form__group--label">
-          Téléphone
+        <label htmlFor="phonenumber" className="form__group--label">
+          Téléphone *
         </label>
         <input
-          autoFocus
-          id='name'
-          type='text'
+          id='phonenumber'
+          type='tel'
           value={phonenumber}
           onChange={handleChange}
           name='phonenumber'
-          placeholder='+33 6 xx xx xx xx'
+          placeholder='06 xx xx xx xx'
           className="form__group--input"
+          pattern="[0-9 ]+"
+          required
         />
       </div>
       <div className="form__group">
-        <label htmlFor="name" className="form__group--label">
-          Mot de passe
+        <label htmlFor="password" className="form__group--label">
+          Mot de passe *
         </label>
         <input
-          autoFocus
-          id='name'
+          id='password'
           type='password'
           value={password}
           onChange={handleChange}
           name='password'
-          placeholder='8 caractères minimum'
+          placeholder='6 caractères minimum'
           className="form__group--input"
+          required
         />
       </div>
       <div className="form__group">
-        <label htmlFor="name" className="form__group--label">
-          Confirmer le mot de passe
+        <label htmlFor="password2" className="form__group--label">
+          Confirmer le mot de passe *
         </label>
         <input
-          autoFocus
-          id='name'
+          id='password2'
           type='password'
           value={password2}
           onChange={handleChange}
           name='password2'
-          placeholder='8 caractères minimum'
+          placeholder='6 caractères minimum'
           className="form__group--input"
+          required
         />
+        <p>* Champs bligatoires</p>
       </div>
       <div className="form__submit">
         <button
           type="submit"
-          className="form__submit--button"
+          className={isActive ? "form__submit--button" : "form__submit--button form__submit--button--active"}
+          disabled={isActive ? false : "disabled"}
         >
           Inscription
-          </button>
+        </button>
       </div>
       <div className="sign-in">
         <Link to="/sign-in">

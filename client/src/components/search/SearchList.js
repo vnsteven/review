@@ -1,13 +1,9 @@
 import React, { useState, Fragment } from 'react';
 
-import TextField from '@material-ui/core/TextField';
 import SearchCard from './SearchCard';
 import { urlTMDB } from '../../utils/constants';
 
-const formStyle = {
-  display: 'flex',
-  justifyContent: 'center'
-}
+import { ReactComponent as Search } from '../../assets/svg/search.svg';
 
 function SearchList() {
   const [searchValue, setSearchValue] = useState('');
@@ -34,16 +30,18 @@ function SearchList() {
   }
 
   return (
-    <Fragment>
-      <form style={formStyle} onSubmit={handleSubmit}>
-        <TextField
+    <div className="review">
+      <h1 className="review__title">Nouvelle review</h1>
+      <form className="review__searchbar" onSubmit={handleSubmit}>
+        <input
           autoFocus
           value={searchValue}
           onChange={handleChange}
-          margin="normal"
-          inputProps={{ 'aria-label': 'bare' }}
-          placeholder='Chercher un film'
+          type="text"
+          className="review__searchbar--input"
+          placeholder="Chercher un film"
         />
+        <Search />
       </form>
       {
         movieList.map(movie => (
@@ -54,7 +52,7 @@ function SearchList() {
           />
         ))
       }
-    </Fragment>
+    </div>
   )
 }
 

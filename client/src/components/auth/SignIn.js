@@ -36,6 +36,11 @@ function SignIn({
       ...formData,
       [e.target.name]: e.target.value
     })
+  };
+
+  let isActive = false;
+  if (formData.name.length > 0 && formData.password.length > 0) {
+    isActive = !isActive
   }
 
   return (
@@ -75,10 +80,11 @@ function SignIn({
       <div className="form__submit">
         <button
           type="submit"
-          className="form__submit--button"
+          className={isActive ? "form__submit--button" : "form__submit--button form__submit--button--active"}
+          disabled={isActive ? false : "disabled"}
         >
           Connexion
-          </button>
+        </button>
       </div>
       <div className="sign-up">
         <Link to="/sign-up">

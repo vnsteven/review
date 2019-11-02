@@ -1,6 +1,6 @@
 :root {
   --color-primary: #6c4eef;
-  --color-primary-light: #8169f0;
+  --color-primary-light: #9c89f0;
   --color-primary-dark: #6b4eef9e;
 
   --color-grey-light-1: #faf9f9;
@@ -13,6 +13,9 @@
   --color-grey-dark-3: #999;
 
   --color-black: #1c1b29;
+
+  --font-size-small: 1rem;
+  --font-size-medium: 1.4rem;
 }
 
 * {
@@ -31,4 +34,21 @@ body {
   color: var(--color-grey-dark-1);
   background-color: var(--color-grey-light-3);
   min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.app {
+  margin-top: 4rem;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
