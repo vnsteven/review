@@ -7,10 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
-const cardStyle = {
-  margin: '1rem'
-}
-
 function InboxItem({
   id,
   sender,
@@ -18,7 +14,7 @@ function InboxItem({
   description
 }) {
   return (
-    <Card style={cardStyle}>
+    <Card>
       <CardContent>
         <h3>{title}</h3>
         <p>{description}</p>

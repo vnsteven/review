@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { sendReview } from '../../store/actions/review';
+import { sendReview } from '../../../store/actions/review';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-
-const cardStyle = {
-  margin: '1rem'
-}
+import DefaultPicture from '../../../assets/img/default-picture.jpg';
+import './UserCard.scss';
 
 function UserCard({
   location,
@@ -34,21 +28,23 @@ function UserCard({
   }
 
   return (
-    <Card style={cardStyle}>
-      <CardContent>
-        <h3>{name}</h3>
-      </CardContent>
-      <CardActions>
-        <Button
-          onClick={handleSend}
-          variant='contained'
-          color='primary'
-          disabled={isSent}
-        >
-          {isSent ? 'Envoyé' : 'Envoyer'}
-        </Button>
-      </CardActions>
-    </Card>
+    <div className="user-card">
+      <img
+        className="user-card--picture"
+        src={DefaultPicture}
+        alt="profile-picture"
+      />
+      <h3 className="user-card--name">{name}</h3>
+      <button
+        className="user-card--send-button"
+        onClick={handleSend}
+        variant='contained'
+        color='primary'
+        disabled={isSent}
+      >
+        {isSent ? 'Envoyé' : 'Envoyer'}
+      </button>
+    </div>
   )
 }
 

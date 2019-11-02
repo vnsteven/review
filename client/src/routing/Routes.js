@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 import SignUp from '../components/auth/SignUp';
 import SignIn from '../components/auth/SignIn';
 import Account from '../components/profile/Account';
-import SearchList from '../components/search/SearchList';
-import UserList from '../components/user/UserList';
+import SearchList from '../components/search/SearchList/SearchList';
+import UserList from '../components/user/UserList/UserList';
 import ReviewSection from '../components/reviews/ReviewSection';
 
 function Routes({ isAuthenticated }) {
@@ -23,7 +23,7 @@ function Routes({ isAuthenticated }) {
     <Fragment>
       <Switch>
         {!isAuthenticated && guest}
-        <PrivateRoute exact path='/create' component={SearchList} />
+        <PrivateRoute path='/create' component={SearchList} />
         <PrivateRoute path='/account' component={Account} />
         <PrivateRoute path='/create' component={SearchList} />
         <PrivateRoute path='/send' component={UserList} />

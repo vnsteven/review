@@ -22,23 +22,15 @@ function Landing({ isAuthenticated }) {
         </div>
       </header>
       <div className="landing__btn">
-        <button className="landing__btn--facebook">
-          <Link to='#'>
-            Se connecter avec Facebook
-          </Link>
-        </button>
-        <button className="landing__btn--sign-up">
-          <Link
-            to='sign-up'
-          >
-            S'inscrire
-          </Link>
-        </button>
-        <button className="landing__btn--sign-in">
-          <Link to='sign-in'>
-            Se connecter
-          </Link>
-        </button>
+        <Link to='#' className="landing__btn--facebook">
+          Se connecter avec Facebook
+        </Link>
+        <Link to="sign-up" className="landing__btn--sign-up">
+          S'inscrire
+        </Link>
+        <Link to="sign-in" className="landing__btn--sign-in">
+          Se connecter
+        </Link>
       </div>
       <p className="user-condition">
         En continuant, j'accepte les <span>conditions d'utilisation</span> de Reco.

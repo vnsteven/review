@@ -2,8 +2,6 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import PropTypes from 'prop-types';
-
 function PrivateRoute({
   component: Component,
   auth: { isAuthenticated },
@@ -19,11 +17,6 @@ function PrivateRoute({
       }
     />
   )
-}
-
-PrivateRoute.propTypes = {
-  component: PropTypes.object.isRequired,
-  auth: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({

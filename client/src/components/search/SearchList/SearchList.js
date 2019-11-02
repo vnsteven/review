@@ -1,9 +1,11 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 
-import SearchCard from './SearchCard';
-import { urlTMDB } from '../../utils/constants';
+import SearchCard from '../SearchCard/SearchCard';
+import { urlTMDB } from '../../../utils/constants';
 
-import { ReactComponent as Search } from '../../assets/svg/search.svg';
+import { ReactComponent as Search } from '../../../assets/svg/search.svg';
+
+import './SearchList.scss';
 
 function SearchList() {
   const [searchValue, setSearchValue] = useState('');
@@ -19,7 +21,7 @@ function SearchList() {
           method: 'GET'
         })
       const resData = await res.json();
-      setMovieList(resData.results);
+      setMovieList(resData.results.slice(0, 10));
     } else {
       setMovieList([]);
     }
@@ -43,15 +45,18 @@ function SearchList() {
         />
         <Search />
       </form>
-      {
-        movieList.map(movie => (
-          <SearchCard
-            key={movie.id}
-            title={movie.title}
-            overview={movie.overview}
-          />
-        ))
-      }
+      <div className="review__list">
+        {
+          movieList.map(movie => (
+            <SearchCard
+              key={movie.id}
+              title={movie.title}
+              overview={movie.overview}
+              posterPath={movie.poster_path}
+            />
+          ))
+        }
+      </div>
     </div>
   )
 }

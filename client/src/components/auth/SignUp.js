@@ -122,7 +122,7 @@ function SignUp({
           className="form__group--input"
           required
         />
-        <p>* Champs bligatoires</p>
+        <p>* Champs oligatoires</p>
       </div>
       <div className="form__submit">
         <button

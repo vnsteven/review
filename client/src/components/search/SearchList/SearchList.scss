@@ -12,6 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
 
     &--input {
       flex: 0 0 90%;
@@ -22,6 +24,7 @@
       border-radius: 3rem;
 
       padding: 1.3rem 2rem;
+
       margin-right: -4rem;
 
       &:focus {
@@ -34,5 +37,9 @@
       width: 3rem;
       fill: var(--color-grey-dark-1);
     }
+  }
+
+  &__list {
+    padding-bottom: 7rem;
   }
 }

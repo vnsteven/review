@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { getUsers } from '../../store/actions/user';
-import UserCard from './UserCard';
+import { getUsers } from '../../../store/actions/user';
+import UserCard from '../UserCard/UserCard';
+
+import './UserList.scss';
 
 function UserList({
   getUsers,
@@ -14,7 +16,8 @@ function UserList({
   }, [getUsers])
 
   return (
-    <div>
+    <div className="user-list">
+      <h1 className="user-list--title">Amis</h1>
       {
         users.map(user => (
           <UserCard
